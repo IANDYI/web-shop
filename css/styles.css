@@ -1,18 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
+/* GLOBAL */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
+    font-size: 16px;
     font-family: "Roboto", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    padding-top: 3em;
 }
 
 /*______Navigation START______*/
 header {
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: 9999;
     width: 100%;
+    height: 3em;
     background-color: rgb(250, 250, 252, 0.8);
     backdrop-filter: blur(1em);
 }
@@ -20,26 +32,42 @@ header {
 .nav-container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0.5em 1em;
+    padding-top: 1em;
+}
+
+.logo {
+    display: block;
+    height: 1em;
+    width: 1em;
+    background-color: rgb(50, 50, 50);
+    background-size: 32px;
+    -webkit-mask: url("/img/logo-16px.svg");
+    mask: url("/img/logo-16px.svg") center no-repeat;
+    transition: 0.15s ease-in-out;
+}
+
+.logo:hover {
+    background-color: black;
 }
 
 .nav-list {
     display: flex;
     list-style: none;
     justify-content: space-between;
-    align-items: center;
-}
-
-.nav-item {
-    padding: 0.5em;
 }
 
 .nav-item__link {
     position: relative;
     font-weight: 300;
-    color: black;
+    color: rgb(50, 50, 50);
     margin: 0 1rem;
     font-weight: 300;
+    white-space: nowrap;
+    transition: 0.15s ease-in-out;
+}
+
+.nav-item__link:hover {
+    color: black;
 }
 
 .nav-item__link::after {
@@ -59,13 +87,20 @@ header {
 
 .nav-item__link-clicked {
     text-shadow: 0 0 0.8em;
+    pointer-events: none;
 }
 /*______Navigation END______*/
 
+/* Content START PC */
+
+/* Content END */
+
 /*______Mobile START______*/
-@media screen and (max-width: 768px) {
+@media (max-width: 35em) {
     .nav-container {
-        display: none;
+        position: fixed;
+        inset: 0 0 0 30%;
+        background: steelblue;
     }
 }
 /*______Mobile END______*/
